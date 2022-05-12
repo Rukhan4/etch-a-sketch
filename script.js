@@ -11,15 +11,6 @@ function defaultGrid() {
     }
 };
 
-function makeRGB() {
-    let ltrs = "0123456789ABCDEF";
-    let finalColor = "#";
-    for (let i = 0; i < 6; i++) {
-        finalColor += ltrs[Math.floor(Math.random() * 16)];
-    }
-    return finalColor;
-}
-
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
@@ -28,7 +19,7 @@ function removeAllChildNodes(parent) {
 
 const slider = document.querySelector("#slider");
 const sliderValue = document.querySelector(".value");
-slider.addEventListener('input', function () {
+slider.addEventListener('input', function (col) {
     let val = document.getElementById("slider").value;
     sliderValue.textContent = val;
     removeAllChildNodes(grid);
@@ -43,5 +34,39 @@ slider.addEventListener('input', function () {
         grid.appendChild(div);
     }
 });
+
+const clear = document.querySelector("#reset");
+reset.addEventListener('click', function () {
+    let cell = grid.children;
+    for (let i = 0; i < cell.length; i++) {
+        cell[i].style.backgroundColor = "white";
+    }
+})
+
+function randomColor() {
+    let ltrs = "0123456789ABCDEF";
+    let finalColor = "#";
+    for (let i = 0; i < 6; i++) {
+        finalColor += ltrs[Math.floor(Math.random() * 16)];
+    }
+    return finalColor;
+}
+
+let options = document.querySelectorAll("button");
+
+options.forEach(button => {
+    button.addEventListener('click', function (e) {
+        let col = "";
+        choice = e.target.getAttribute("id");
+        //console.log(choice);
+        if (choice === "blk") {
+            col = "black";
+        } else if (choice === "rgb") {
+            col = randomColor();
+            //console.log(col);
+        }
+    })
+})
+
 
 defaultGrid();
