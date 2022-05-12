@@ -10,3 +10,12 @@ function createGrid() {
         grid.append(div);
     }
 };
+
+function makeRGB() {
+    let ltrs = "0123456789ABCDEF";
+    let finalColor = "#";
+    for (let i = 0; i < 6; i++) {
+        finalColor += ltrs[Math.floor(Math.random() * 16)];
+    }
+    return finalColor;
+}
