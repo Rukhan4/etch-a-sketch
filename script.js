@@ -35,15 +35,6 @@ slider.addEventListener('input', function () {
     }
 });
 
-// Allows user to reset the grid
-const clear = document.querySelector("#reset");
-reset.addEventListener('click', function () {
-    let cell = grid.children;
-    for (let i = 0; i < cell.length; i++) {
-        cell[i].style.backgroundColor = "white";
-    }
-})
-
 // Chooses a random rgb color
 function randomColor() {
     let ltrs = "0123456789ABCDEF";
@@ -64,9 +55,16 @@ options.forEach(button => {
             makeGrid("black");
         } else if (choice === 'rgb') {
             makeGrid(randomColor());
+        } else if (choice === "col") {
+            const chooseColor = document.querySelector("#col");
+            chooseColor.addEventListener('input', function () {
+                //console.log(chooseColor.value);
+                makeGrid(chooseColor.value);
+            });
         }
     })
 });
+
 
 function makeGrid(col) {
     let val = document.getElementById("slider").value;
@@ -77,6 +75,15 @@ function makeGrid(col) {
         });
     };
 }
+
+// Allows user to reset the grid
+const clear = document.querySelector("#reset");
+reset.addEventListener('click', function () {
+    let cell = grid.children;
+    for (let i = 0; i < cell.length; i++) {
+        cell[i].style.backgroundColor = "white";
+    }
+})
 
 // // Allows user to use rgb color when doodling on the grid
 // const rgb = document.querySelector("#rgb");
@@ -101,5 +108,7 @@ function makeGrid(col) {
 //         })
 //     }
 // });
+
+
 
 defaultGrid();
