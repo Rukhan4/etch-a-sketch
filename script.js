@@ -45,7 +45,7 @@ function randomColor() {
     return finalColor;
 }
 
-
+// Lets user pick one of black, rgb or set their own color to doodle with
 let options = document.querySelectorAll("button");
 options.forEach(button => {
     button.addEventListener('click', function (e) {
@@ -54,7 +54,7 @@ options.forEach(button => {
         if (choice === 'blk') {
             makeGrid("black");
         } else if (choice === 'rgb') {
-            makeGrid(randomColor());
+            makeGrid("rgb");
         } else if (choice === "col") {
             const chooseColor = document.querySelector("#col");
             chooseColor.addEventListener('input', function () {
@@ -65,13 +65,18 @@ options.forEach(button => {
     })
 });
 
-
+// lets user use the color chosen on the grid
 function makeGrid(col) {
     let val = document.getElementById("slider").value;
     let cell = grid.children;
     for (let i = 0; i < (val * val); i++) {
         cell[i].addEventListener('mouseover', function (e) {
-            e.target.style.backgroundColor = col;
+            if (col === "rgb") {
+                e.target.style.backgroundColor = randomColor();
+            } else {
+                e.target.style.backgroundColor = col;
+            }
+
         });
     };
 }
