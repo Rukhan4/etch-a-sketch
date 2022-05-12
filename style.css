@@ -66,7 +66,7 @@ button {
     justify-content: center;
 }
 
-.slider {
+#slider {
     -webkit-appearance: none;
     width: 20%;
     height: 25px;
@@ -78,12 +78,12 @@ button {
 }
 
 /* Mouse-over effects */
-.slider:hover {
+#slider:hover {
     opacity: 1;
 }
 
 /* change slider's button */
-.slider::-webkit-slider-thumb {
+#slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 25px;
@@ -108,15 +108,14 @@ p {
 
 .grid {
     margin-top: 30px;
-    display: inline-grid;
+    display: grid;
     grid-template-columns: repeat(16, 2fr);
     grid-template-rows: repeat(16, 2fr);
     border: 5px solid white;
     border-radius: 5px;
     height: 500px;
     width: 500px;
-    background-color: gray;
-    box-shadow: 10px 10px;
+    background-color: grey;
 }
 
 .footer {

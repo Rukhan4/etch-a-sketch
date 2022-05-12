@@ -26,7 +26,7 @@ function removeAllChildNodes(parent) {
     }
 }
 
-const slider = document.querySelector(".slider");
+const slider = document.querySelector("#slider");
 const sliderValue = document.querySelector(".value");
 slider.addEventListener('input', function () {
     let val = document.getElementById("slider").value;
