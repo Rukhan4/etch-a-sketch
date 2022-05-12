@@ -1,0 +1,12 @@
+const grid = document.querySelector(".grid");
+
+function createGrid() {
+    for (let i = 0; i < 256; i++) {
+        const div = document.createElement("div");
+        div.classList.add('cell');
+        div.addEventListener('mouseover', function (e) {
+            e.target.style.backgroundColor = "black";
+        })
+        grid.append(div);
+    }
+};
