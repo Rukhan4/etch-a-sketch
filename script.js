@@ -19,7 +19,7 @@ function removeAllChildNodes(parent) {
 
 const slider = document.querySelector("#slider");
 const sliderValue = document.querySelector(".value");
-slider.addEventListener('input', function (col) {
+slider.addEventListener('input', function () {
     let val = document.getElementById("slider").value;
     sliderValue.textContent = val;
     removeAllChildNodes(grid);
@@ -35,6 +35,7 @@ slider.addEventListener('input', function (col) {
     }
 });
 
+// Allows user to reset the grid
 const clear = document.querySelector("#reset");
 reset.addEventListener('click', function () {
     let cell = grid.children;
@@ -43,6 +44,7 @@ reset.addEventListener('click', function () {
     }
 })
 
+// Chooses a random rgb color
 function randomColor() {
     let ltrs = "0123456789ABCDEF";
     let finalColor = "#";
@@ -52,21 +54,52 @@ function randomColor() {
     return finalColor;
 }
 
-let options = document.querySelectorAll("button");
 
+let options = document.querySelectorAll("button");
 options.forEach(button => {
     button.addEventListener('click', function (e) {
-        let col = "";
-        choice = e.target.getAttribute("id");
-        //console.log(choice);
-        if (choice === "blk") {
-            col = "black";
-        } else if (choice === "rgb") {
-            col = randomColor();
-            //console.log(col);
+        choice = e.target.getAttribute('id');
+        console.log(choice);
+        if (choice === 'blk') {
+            makeGrid("black");
+        } else if (choice === 'rgb') {
+            makeGrid(randomColor());
         }
     })
-})
+});
 
+function makeGrid(col) {
+    let val = document.getElementById("slider").value;
+    let cell = grid.children;
+    for (let i = 0; i < (val * val); i++) {
+        cell[i].addEventListener('mouseover', function (e) {
+            e.target.style.backgroundColor = col;
+        });
+    };
+}
+
+// // Allows user to use rgb color when doodling on the grid
+// const rgb = document.querySelector("#rgb");
+// rgb.addEventListener('click', function () {
+//     let val = document.getElementById('slider').value;
+//     let cell = grid.children;
+//     for (let i = 0; i < (val * val); i++) {
+//         cell[i].addEventListener('mouseover', function (e) {
+//             e.target.style.backgroundColor = randomColor();
+//         })
+//     }
+// });
+
+// // Allows user to use black color when doodling on the grid
+// const black = document.querySelector("#blk");
+// black.addEventListener('click', function () {
+//     let val = document.getElementById('slider').value;
+//     let cell = grid.children;
+//     for (let i = 0; i < (val * val); i++) {
+//         cell[i].addEventListener('mouseover', function (e) {
+//             e.target.style.backgroundColor = "black";
+//         })
+//     }
+// });
 
 defaultGrid();
