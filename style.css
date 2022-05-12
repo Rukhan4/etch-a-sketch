@@ -14,7 +14,7 @@ h1 {
     text-shadow: 2px 2px 5px rgb(201, 55, 2);
 }
 
-.btn-container {
+.btn_container {
     display: flex;
     justify-content: center;
     gap: 40px;
@@ -115,7 +115,7 @@ p {
     border-radius: 5px;
     height: 500px;
     width: 500px;
-    background-color: grey;
+    background-color: white;
 }
 
 .footer {
