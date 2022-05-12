@@ -103,7 +103,7 @@ p {
     color: black;
 }
 
-grid-container {
+.grid {
     display: inline-grid;
     border: 5px solid #1F2937;
     border-radius: 5px;
