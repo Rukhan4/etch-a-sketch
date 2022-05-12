@@ -51,9 +51,9 @@ button {
 }
 
 #grid-size {
-    font-family: "courier";
     font-size: 30px;
     font-weight: bold;
+    margin-right: 20px;
 }
 
 .slide-container {
@@ -88,6 +88,19 @@ button {
     background: rgb(255, 180, 42);
     border-radius: 50%;
     cursor: pointer;
+}
+
+p {
+    display: block;
+    margin-top: 0px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.value {
+    font-size: 30px;
+    padding-left: 10px;
+    color: black;
 }
 
 grid-container {
